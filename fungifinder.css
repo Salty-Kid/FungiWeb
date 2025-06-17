@@ -231,79 +231,122 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  [aria-controls="primary-nav"] {
+    z-index: 100;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: none;
+  }
+
   .primary-navigation {
     ul {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
     }
-  }
-  .site-footer {
-    text-align: center;
-    background-color: var(--background-dark);
-    padding-block: 2rem;
-    display: grid;
-    gap: 2rem;
-  }
-  .site-footer__title {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
+    @media (width < 760px) {
+      display: none;
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      font-size: --font-size-lg;
+      font-family: var(--ff-heading);
+      font-weight: 700;
+      border-radius: 0 0 0 var(--border-radius-3);
 
-    a {
-      color: var(--text-main);
-    }
-    a:hover,
-    a:focus-visible {
-      color: var(--text-brand-light);
+      ul {
+        gap: 0;
+        flex-direction: column;
+      }
+      li + li {
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.5rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
     }
   }
-  .hero {
-    background-image: url(assets/hero.webp);
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    font-size: var(--font-size-lg);
-    color: var(--text-high-contrast);
-  }
-  .hero__site {
-    font-size: var(--font-size-heading-lg);
-
-    span {
-      font-size: var(--font-size-heading-xl);
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+      display: block;
+    }
+    [aria-expanded="true"] + .primary-navigation {
       display: block;
     }
   }
-  .card {
-    display: grid;
-    border-radius: var(--border-radius-3);
-    gap: var(--card-gap, 1rem);
-    padding: 1rem;
-    background-color: var(--background-light);
+  img {
+    border-radius: 0;
+  }
+}
 
-    img {
-      border-radius: var(--border-radius-2);
-    }
+.site-footer {
+  text-align: center;
+  background-color: var(--background-dark);
+  padding-block: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+.site-footer__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+
+  a {
+    color: var(--text-main);
   }
-  .card-title {
-    font-size: var(--card-title-fs, var(--font-size-heading-sm));
-    color: var(--card-title-color, var(--text-brand));
+  a:hover,
+  a:focus-visible {
+    color: var(--text-brand-light);
   }
-  .button {
-    display: inline-flex;
-    font-size: var(--font-size-regular);
-    color: var(--text-high-contrast);
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    background-color: var(--background-accent-main);
-    font-family: var(--ff-heading);
-    font-weight: 700;
+}
+.hero {
+  background-image: url(assets/hero.webp);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--text-high-contrast);
+}
+.hero__site {
+  font-size: var(--font-size-heading-lg);
+
+  span {
+    font-size: var(--font-size-heading-xl);
+    display: block;
+  }
+}
+.card {
+  display: grid;
+  border-radius: var(--border-radius-3);
+  gap: var(--card-gap, 1rem);
+  padding: 1rem;
+  background-color: var(--background-light);
+
+  img {
     border-radius: var(--border-radius-2);
   }
-  .button:hover,
-  button:focus-visible {
-    color: var(--text-high-contrast);
-    background-color: var(--background-accent-light);
-  }
+}
+.card-title {
+  font-size: var(--card-title-fs, var(--font-size-heading-sm));
+  color: var(--card-title-color, var(--text-brand));
+}
+.button {
+  display: inline-flex;
+  font-size: var(--font-size-regular);
+  color: var(--text-high-contrast);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: var(--background-accent-main);
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  border-radius: var(--border-radius-2);
+}
+.button:hover,
+button:focus-visible {
+  color: var(--text-high-contrast);
+  background-color: var(--background-accent-light);
 }
 
 @layer utilities {
