@@ -95,3 +95,18 @@ font-size: calc(var(--base-size) / var(--scale));
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 //Fira Sans
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/_ filtering css _/
+.mushroom-guide:has(#season [value="spring"]:checked)
+.card:not(:has([data-season="spring"])) {
+display: none;
+}
+
+if the user has no js
+put hidden selector in filter
+
+function enableFiltering () {
+seasonalFilter.hidden = false;
+edibleFilter.hidden = false;
+}
+enableFiltering ();
